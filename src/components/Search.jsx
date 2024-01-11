@@ -9,13 +9,18 @@ const Search = ({ search, setSearch, handleSearch }) => {
     handleSearch: PropTypes.func,
   };
 
+  const test = async(e) => {
+    await setSearch(e.target.value.toLocaleLowerCase());
+    handleSearch();
+  };
+
   return (
     <div className={styles.search}>
       <input
         type="text"
         placeholder="search title"
         value={search}
-        onChange={(e) => setSearch(e.target.value.toLocaleLowerCase())}
+        onChange={test}
       />
       <button onClick={handleSearch}>
         <PiMagnifyingGlassBold />
